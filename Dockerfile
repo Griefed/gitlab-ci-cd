@@ -18,6 +18,8 @@ LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for G
 
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
 
+ENV DOCKER_CLI_EXPERIMENTAL=enabled
+
 RUN \
   echo "**** Updating and installing our packages ****" && \
   apk update && \
