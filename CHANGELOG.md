@@ -1,3 +1,20 @@
+### [1.0.1](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.0...1.0.1) (2021-07-10)
+
+
+### 🦊 CI/CD
+
+* Switch image to gitlab-ci-cd which provides for all jobs ([90e78d4](https://git.griefed.de/prosper/gitlab-ci-cd/commit/90e78d4755006b79d1787f8331237615db27f9a6))
+
+
+### 🛠 Fixes
+
+* Enable docker experimental features to allow for manifest manipulation ([0a7f99a](https://git.griefed.de/prosper/gitlab-ci-cd/commit/0a7f99af63801facf5e6ae6d6629fe70dbe0b6dc))
+
+
+### Other
+
+* List DIND as well ([975025a](https://git.griefed.de/prosper/gitlab-ci-cd/commit/975025aa92eb9568793ee52f16e437fab3a99691))
+
 ## [1.0.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/...1.0.0) (2021-07-10)
 
 
