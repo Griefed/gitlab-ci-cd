@@ -19,6 +19,7 @@ LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for G
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
 
 RUN \
+  echo "**** Updating and installing our packages ****" && \
   apk update && \
   apk upgrade -y && \
   apk add --no-cache \
@@ -29,6 +30,12 @@ RUN \
     nodejs \
     npm \
     openjdk8 && \
+  echo "**** Cleanup ****" && \
+  rm -rf \
+    /var/cache/apk/* \
+    /tmp/*
+
+RUN \
   echo "**** Installing GitLab Semantic Release ****" && \
   npm install -g \
     conventional-changelog-conventionalcommits \
@@ -40,12 +47,25 @@ RUN \
     @semantic-release/gitlab \
     @semantic-release/npm \
     @semantic-release/release-notes-generator && \
+  echo "**** Cleanup ****" && \
+  rm -rf \
+    /var/cache/apk/* \
+    /tmp/*
+
+RUN \
   echo "**** Making docker-buildx executable for all ****" && \
   chmod a+x \
     /usr/lib/docker/cli-plugins/docker-buildx && \
+  echo "**** Cleanup ****" && \
+  rm -rf \
+    /var/cache/apk/* \
+    /tmp/*
+
+RUN \
   echo "**** Installing quasar ****" && \
   npm install -g \
     @quasar/cli && \
   echo "**** Cleanup ****" && \
   rm -rf \
-    /var/cache/apk/*
+    /var/cache/apk/* \
+    /tmp/*
