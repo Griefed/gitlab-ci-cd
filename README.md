@@ -14,4 +14,4 @@ Combines:
 - JDK8 for CI
 - [GitLab Semantic Release](https://git.griefed.de/prosper/gitlab-semantic-release)
 - NodeJS for CI
-
+- Docker-in-Docker
