@@ -1,3 +1,15 @@
+### [1.0.3](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.2...1.0.3) (2021-10-15)
+
+
+### 🦊 CI/CD
+
+* Update ci-cd image to 1.0.2 ([5536a5e](https://git.griefed.de/prosper/gitlab-ci-cd/commit/5536a5eedf38575ae40dd1bd2fac35be730effe0))
+
+
+### 🛠 Fixes
+
+* Update nodejs and npm ([2609aa1](https://git.griefed.de/prosper/gitlab-ci-cd/commit/2609aa1b918c42d2f0f68e3772f0e0e739707558))
+
 ### [1.0.2](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.1...1.0.2) (2021-10-15)
 
 
