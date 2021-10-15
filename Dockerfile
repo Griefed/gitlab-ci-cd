@@ -29,9 +29,19 @@ RUN \
     ca-certificates \
     curl \
     git \
-    nodejs \
+    nodejs-current \
     npm \
     openjdk8 && \
+    echo "node version is: " && \
+    node -v && \
+  echo "npm version is: " && \
+    npm -v && \
+  echo "updating npm..." && \
+  npm update -g && \
+  echo "node version is: " && \
+    node -v && \
+  echo "npm version is: " && \
+    npm -v && \
   echo "**** Installing GitLab Semantic Release ****" && \
   npm install -g \
     conventional-changelog-conventionalcommits \
