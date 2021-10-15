@@ -1,3 +1,16 @@
+### [1.0.2](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.1...1.0.2) (2021-10-15)
+
+
+### 🛠 Fixes
+
+* Use stable-dind as 19.03 did not support armv7 ([3cd7e86](https://git.griefed.de/prosper/gitlab-ci-cd/commit/3cd7e86b5fe4180b1d01d90df60d35b0da85b33d))
+
+
+### Other
+
+* Add GitLab issue templates ([ef94283](https://git.griefed.de/prosper/gitlab-ci-cd/commit/ef94283e4561e57d9e10f05be08340c6244baf23))
+* **deps:** update griefed/gitlab-ci-cd docker tag to v1.0.1 ([990877c](https://git.griefed.de/prosper/gitlab-ci-cd/commit/990877c341f0c6219123f36e5a6dd3fae9dc859b))
+
 ### [1.0.1](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.0...1.0.1) (2021-07-10)
 
 
