@@ -11,7 +11,7 @@ RUN \
   chmod a+x \
     /docker-buildx
 
-FROM docker:stable-dind
+FROM docker:docker pull docker:20.10.10-dind-alpine3.14
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
