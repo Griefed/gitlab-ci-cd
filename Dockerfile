@@ -11,7 +11,7 @@ RUN \
   chmod a+x \
     /docker-buildx
 
-FROM docker:stable-dind
+FROM docker:20.10.10-dind
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
@@ -37,7 +37,7 @@ RUN \
   echo "npm version is: " && \
     npm -v && \
   echo "updating npm..." && \
-  npm update -g && \
+    npm update -g && \
   echo "node version is: " && \
     node -v && \
   echo "npm version is: " && \
