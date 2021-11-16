@@ -1,3 +1,15 @@
+### [1.0.4](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.3...1.0.4) (2021-11-16)
+
+
+### 🛠 Fixes
+
+* No pr limit for renovate bot ([a15ffc0](https://git.griefed.de/prosper/gitlab-ci-cd/commit/a15ffc0f7fcd775049ddbc7f50e6ab43efc365ad))
+
+
+### Other
+
+* **deps:** update griefed/gitlab-ci-cd docker tag to v1.0.3 ([f8d8f54](https://git.griefed.de/prosper/gitlab-ci-cd/commit/f8d8f54e39ae8ceb23aae57f97ecd27812354069))
+
 ### [1.0.3](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.2...1.0.3) (2021-10-15)
 
 
