@@ -2,7 +2,6 @@
   "extends": [
     "config:base"
   ],
-  "prConcurrentLimit": 0,
   "labels": ["dependencies"],
   "assignees": ["Griefed"]
 }
