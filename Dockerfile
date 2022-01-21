@@ -4,12 +4,20 @@ RUN \
   apk add \
     curl && \
   LATEST_DOCKERX=$(curl --silent "https://api.github.com/repos/docker/buildx/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c 2-) && \
-  curl \
-    -L \
-    --output /docker-buildx \
-      "https://github.com/docker/buildx/releases/download/v${LATEST_DOCKERX}/buildx-v${LATEST_DOCKERX}.linux-amd64" && \
-  chmod a+x \
-    /docker-buildx
+  echo "**** Acquire docker-buildx" && \
+    curl \
+      -L \
+      --output /docker-buildx \
+        "https://github.com/docker/buildx/releases/download/v${LATEST_DOCKERX}/buildx-v${LATEST_DOCKERX}.linux-amd64" && \
+    chmod a+x \
+      /docker-buildx && \
+  echo "**** Acquire discord.sh from ChaoticWeg/discord.sh" && \
+    curl \
+      -L \
+      --output /discord.sh \
+        https://raw.githubusercontent.com/ChaoticWeg/discord.sh/master/discord.sh && \
+    chmod a+x \
+      /discord.sh
 
 FROM docker:19.03-dind
 
@@ -17,6 +25,7 @@ LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
 
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
+COPY --from=fetcher /discord.sh /discord.sh
 
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 
@@ -29,6 +38,7 @@ RUN \
     ca-certificates \
     curl \
     git \
+    jq \
     nodejs \
     npm \
     openjdk8 && \
@@ -43,9 +53,11 @@ RUN \
     @semantic-release/gitlab \
     @semantic-release/npm \
     @semantic-release/release-notes-generator && \
-  echo "**** Making docker-buildx executable for all ****" && \
+  echo "**** Making docker-buildx and discord.sh executable for all ****" && \
   chmod a+x \
     /usr/lib/docker/cli-plugins/docker-buildx && \
+  chmod a+x \
+    /discord.sh && \
   echo "**** Installing quasar ****" && \
   npm install -g \
     @quasar/cli && \

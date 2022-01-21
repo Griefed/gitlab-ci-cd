@@ -15,3 +15,4 @@ Combines:
 - [GitLab Semantic Release](https://git.griefed.de/prosper/gitlab-semantic-release)
 - NodeJS for CI
 - Docker-in-Docker
+- [discord.sh](https://github.com/ChaoticWeg/discord.sh)
