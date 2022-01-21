@@ -25,6 +25,7 @@ LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
 
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
+COPY --from=fetcher /discord.sh /discord.sh
 
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 
@@ -73,4 +74,5 @@ RUN \
   echo "**** Cleanup ****" && \
   rm -rf \
     /var/cache/apk/* \
-    /tmp/*
+    /tmp/* \
+
