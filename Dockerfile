@@ -19,13 +19,12 @@ RUN \
     chmod a+x \
       /discord.sh
 
-FROM docker:19.03-dind
+FROM docker:20.10.12-dind-alpine3.15
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
 
 COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
-COPY --from=fetcher /discord.sh /discord.sh
 
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 
@@ -38,10 +37,20 @@ RUN \
     ca-certificates \
     curl \
     git \
+    nodejs-current \
     jq \
-    nodejs \
     npm \
     openjdk8 && \
+  echo "node version is: " && \
+    node -v && \
+  echo "npm version is: " && \
+    npm -v && \
+  echo "updating npm..." && \
+    npm update -g && \
+  echo "node version is: " && \
+    node -v && \
+  echo "npm version is: " && \
+    npm -v && \
   echo "**** Installing GitLab Semantic Release ****" && \
   npm install -g \
     conventional-changelog-conventionalcommits \

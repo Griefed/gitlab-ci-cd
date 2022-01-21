@@ -1,3 +1,40 @@
+### [1.0.4](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.3...1.0.4) (2021-11-16)
+
+
+### 🛠 Fixes
+
+* No pr limit for renovate bot ([a15ffc0](https://git.griefed.de/prosper/gitlab-ci-cd/commit/a15ffc0f7fcd775049ddbc7f50e6ab43efc365ad))
+
+
+### Other
+
+* **deps:** update griefed/gitlab-ci-cd docker tag to v1.0.3 ([f8d8f54](https://git.griefed.de/prosper/gitlab-ci-cd/commit/f8d8f54e39ae8ceb23aae57f97ecd27812354069))
+
+### [1.0.3](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.2...1.0.3) (2021-10-15)
+
+
+### 🦊 CI/CD
+
+* Update ci-cd image to 1.0.2 ([5536a5e](https://git.griefed.de/prosper/gitlab-ci-cd/commit/5536a5eedf38575ae40dd1bd2fac35be730effe0))
+
+
+### 🛠 Fixes
+
+* Update nodejs and npm ([2609aa1](https://git.griefed.de/prosper/gitlab-ci-cd/commit/2609aa1b918c42d2f0f68e3772f0e0e739707558))
+
+### [1.0.2](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.1...1.0.2) (2021-10-15)
+
+
+### 🛠 Fixes
+
+* Use stable-dind as 19.03 did not support armv7 ([3cd7e86](https://git.griefed.de/prosper/gitlab-ci-cd/commit/3cd7e86b5fe4180b1d01d90df60d35b0da85b33d))
+
+
+### Other
+
+* Add GitLab issue templates ([ef94283](https://git.griefed.de/prosper/gitlab-ci-cd/commit/ef94283e4561e57d9e10f05be08340c6244baf23))
+* **deps:** update griefed/gitlab-ci-cd docker tag to v1.0.1 ([990877c](https://git.griefed.de/prosper/gitlab-ci-cd/commit/990877c341f0c6219123f36e5a6dd3fae9dc859b))
+
 ### [1.0.1](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.0...1.0.1) (2021-07-10)
 
 
