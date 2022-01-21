@@ -1,3 +1,27 @@
+## [1.1.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.4...1.1.0) (2022-01-21)
+
+
+### 🦊 CI/CD
+
+* Update to 20.10.12-dind-alpine3.15 ([504c6cc](https://git.griefed.de/prosper/gitlab-ci-cd/commit/504c6cc1ed2b5e4f20936bc11be5580659c02870))
+* Move to gitlab-ci-cd:1.0.4 which deprecates armv7 images. Staying up-to-date is more important than supporting old platforms. Sorry, you may need to consider getting a Raspberry Pi 4. ([b5572fc](https://git.griefed.de/prosper/gitlab-ci-cd/commit/b5572fcb3a92cce3b9de6deacb041d97308c078e))
+
+
+### 🚀 Features
+
+* Add discord.sh for webhook messages ([b0968e2](https://git.griefed.de/prosper/gitlab-ci-cd/commit/b0968e268bc9b763ad09eae6c39e6343b78521ed))
+
+
+### 🛠 Fixes
+
+* Add copy from fetcher that got lost during merge ([2f8e148](https://git.griefed.de/prosper/gitlab-ci-cd/commit/2f8e14872fd9ede45c1053bd5d1f924ff083a73e))
+
+
+### Other
+
+* **deps:** update docker docker tag to v20.10.11 ([bb3913a](https://git.griefed.de/prosper/gitlab-ci-cd/commit/bb3913aa7d250c8c514b0cc8995051a56c439071))
+* **deps:** update docker docker tag to v20.10.12 ([c11124c](https://git.griefed.de/prosper/gitlab-ci-cd/commit/c11124c2ef85c7ad1a62c129ad8cd4126a33583c))
+
 ### [1.0.4](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.3...1.0.4) (2021-11-16)
 
 
