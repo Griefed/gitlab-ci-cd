@@ -1,3 +1,5 @@
+## [2.0.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.1.0...2.0.0) (2022-01-23)
+
 ## [1.1.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/1.0.4...1.1.0) (2022-01-21)
 
 
