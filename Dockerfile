@@ -19,7 +19,7 @@ RUN \
     chmod a+x \
       /discord.sh
 
-FROM docker:20.10.12-dind-alpine3.15
+FROM mazzolino/docker:20.10.12-dind
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
