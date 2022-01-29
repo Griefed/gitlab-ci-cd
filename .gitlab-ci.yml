@@ -3,15 +3,16 @@ stages:
   - release
   - build
 
+image: griefed/gitlab-ci-cd:2.0.0
+services:
+  - name: docker:dind
+    alias: docker
+variables:
+  project_name: $CI_PROJECT_NAME
+  SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
+
 test docker:
   stage: test
-  image: griefed/gitlab-ci-cd:2.0.0
-  services:
-    - name: docker:dind
-      alias: docker
-  variables:
-    project_name: $CI_PROJECT_NAME
-    SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
   before_script:
     - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN" docker.io
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -29,18 +30,11 @@ test docker:
     refs:
       - tags
     variables:
-      - $CI_COMMIT_TITLE =~ /^RELEASE:.+$/
+      - '$CI_COMMIT_TITLE =~ /^RELEASE:.+$/ || $CI_PIPELINE_SOURCE == "schedule"'
 
 release:
   needs: ['test docker']
   stage: release
-  image: griefed/gitlab-ci-cd:2.0.0
-  services:
-    - name: docker:dind
-      alias: docker
-  variables:
-    project_name: $CI_PROJECT_NAME
-    SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
   script:
     - npx semantic-release
   only:
@@ -49,17 +43,10 @@ release:
     refs:
       - tags
     variables:
-      - $CI_COMMIT_TITLE =~ /^RELEASE:.+$/
+      - '$CI_COMMIT_TITLE =~ /^RELEASE:.+$/ || $CI_PIPELINE_SOURCE == "schedule"'
 
 build:
   stage: build
-  image: griefed/gitlab-ci-cd:2.0.0
-  services:
-    - name: docker:dind
-      alias: docker
-  variables:
-    project_name: $CI_PROJECT_NAME
-    SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
   before_script:
     - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN" docker.io
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -77,3 +64,79 @@ build:
       --tag "index.docker.io/$DOCKERHUB_USER/$DOCKERHUB_REPO:latest" .
   only:
     - tags
+
+Check Packages:on-schedule:
+  only:
+    - schedules
+  before_script:
+    - |-
+      # Check and, if necessary, update git user and mail
+      if [[ "$(git config --list | grep user.name)" != "user.name=$GIT_USER" ]];then
+        git config --global user.name $GIT_USER
+      fi
+      if [[ "$(git config --list | grep user.email)" != "user.email=$GIT_MAIL" ]];then
+        git config --global user.email $GIT_MAIL
+      fi
+      
+      # Clean system of potentially interrupting images
+      docker image rm -f $DOCKERHUB_USER/$DOCKERHUB_REPO:latest
+      docker image rm -f localbuild
+      rm -rf /tmp/$CI_PROJECT_PATH
+      rm -f /tmp/package_versions*
+      mkdir -p /tmp/$CI_PROJECT_PATH
+  script:
+    - |-
+      # Clone the repository
+      git clone $CI_PROJECT_URL.git /tmp/$CI_PROJECT_PATH && \
+      cd /tmp/$CI_PROJECT_PATH && \
+      
+      # Build local image for new package versions list
+      docker build --tag localbuild . && \
+      
+      # Get packages from newly build local image
+      docker run --rm --entrypoint /bin/sh -v /tmp:/tmp localbuild -c '\
+        apk info -v > /tmp/package_versions_new.txt && \
+        sort -o /tmp/package_versions_new.txt  /tmp/package_versions_new.txt && \
+        chmod 777 /tmp/package_versions_new.txt' && \
+      
+      # Gather package information from latest build
+      docker run --rm --entrypoint /bin/sh -v /tmp:/tmp $DOCKERHUB_USER/$DOCKERHUB_REPO:latest -c '\
+        apk info -v > /tmp/package_versions_old.txt && \
+        sort -o /tmp/package_versions_old.txt  /tmp/package_versions_old.txt && \
+        chmod 777 /tmp/package_versions_old.txt' && \
+
+      # Get checksum of old packages
+      OLD_CHECKSUM=$(md5sum /tmp/package_versions_old.txt | cut -f1 -d" ") && \
+      
+      # Get checksum of new packages
+      NEW_CHECKSUM=$(md5sum /tmp/package_versions_new.txt | cut -f1 -d" ") && \
+      
+      # If new checksum is not the same as old checksum, we have new versions
+      if [ "${OLD_CHECKSUM}" != "${NEW_CHECKSUM}" ]; then
+      
+        # Checkout our branch
+        git --git-dir /tmp/$CI_PROJECT_PATH.git checkout -f master && \
+      
+        # Copy the new package versions list to repository
+        cp -f /tmp/package_versions_new.txt /tmp/$CI_PROJECT_PATH/package_versions.txt && \
+        
+        wait && \
+      
+        # Add and commit new file to repository
+        git add package_versions.txt && \
+        git commit -m 'build: Update installed packages.' && \
+      
+        # Push the changes to the remote
+        git push "https://$GIT_USER:$GITLAB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git" --all && \
+      
+        # Nice
+        echo "Packages updated."
+      else
+        echo "No package updates available."
+      fi
+  after_script:
+    - |-
+      docker image rm -f $DOCKERHUB_USER/$DOCKERHUB_REPO:latest
+      docker image rm -f localbuild
+      rm -rf /tmp/$CI_PROJECT_PATH
+      echo "Done."
