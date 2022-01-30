@@ -101,7 +101,7 @@ Check Packages:on-schedule:
           chmod 777 /tmp/package_versions.txt' && \
       
         # Checkout our branch
-        git --git-dir /tmp/$CI_PROJECT_PATH.git checkout -f main && \
+        git checkout -f $CI_DEFAULT_BRANCH && \
       
         wait && \
       
@@ -136,7 +136,7 @@ Check Packages:on-schedule:
         if [ "${OLD_CHECKSUM}" != "${NEW_CHECKSUM}" ]; then
       
           # Checkout our branch
-          git --git-dir /tmp/$CI_PROJECT_PATH.git checkout -f main && \
+          git checkout -f $CI_DEFAULT_BRANCH && \
       
           # Copy the new package versions list to repository
           mv -f package_versions_new.txt package_versions.txt && \
