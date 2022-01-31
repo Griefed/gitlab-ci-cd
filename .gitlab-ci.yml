@@ -87,13 +87,13 @@ Check Packages:on-schedule:
       echo "Preparations complete."
   script:
     - |-
-      echo "Comparing package versions."
+      echo "Comparing package versions." && \
       # Clone the repository
       git clone $CI_PROJECT_URL.git /tmp/$CI_PROJECT_PATH && \
       cd /tmp/$CI_PROJECT_PATH && \
       
       if [ ! -s "package-versions.txt" ];then
-        echo "No package-versions.txt available..."
+        echo "No package-versions.txt available..." && \
       
         # Gather package information from latest build
         docker run --rm --entrypoint /bin/sh -v /tmp/$CI_PROJECT_PATH:/tmp $DOCKERHUB_USER/$DOCKERHUB_REPO:latest -c '\
@@ -117,7 +117,7 @@ Check Packages:on-schedule:
         echo "package_versions.txt added."        
       
       elif [ -s "package-versions.txt" ];then
-        echo "Local package-versions.txt available..."
+        echo "Local package-versions.txt available..." && \
 
         # Build local image for new package versions list
         docker build --no-cache --tag $DOCKERHUB_REPO . && \
@@ -132,11 +132,15 @@ Check Packages:on-schedule:
         OLD_CHECKSUM=$(md5sum package_versions.txt | cut -f1 -d" ") && \
       
         # Get checksum of new packages
-        NEW_CHECKSUM=$(md5sum package_versions_new.txt | cut -f1 -d" ") && \
+        NEW_CHECKSUM=$(md5sum package_versions_new.txt | cut -f1 -d" ")
+
+
       
         # If new checksum is not the same as old checksum, we have new versions
         if [ "${OLD_CHECKSUM}" != "${NEW_CHECKSUM}" ]; then
-      
+
+          echo "Checksums differ. Updating..." && \
+
           # Checkout our branch
           git checkout -f $CI_DEFAULT_BRANCH && \
       
