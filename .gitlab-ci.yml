@@ -93,6 +93,7 @@ Check Packages:on-schedule:
       cd /tmp/$CI_PROJECT_PATH && \
       
       if [ ! -s "package-versions.txt" ];then
+        echo "No package-versions.txt available..."
       
         # Gather package information from latest build
         docker run --rm --entrypoint /bin/sh -v /tmp/$CI_PROJECT_PATH:/tmp $DOCKERHUB_USER/$DOCKERHUB_REPO:latest -c '\
@@ -116,7 +117,8 @@ Check Packages:on-schedule:
         echo "package_versions.txt added."        
       
       elif [ -s "package-versions.txt" ];then
-      
+        echo "Local package-versions.txt available..."
+
         # Build local image for new package versions list
         docker build --no-cache --tag $DOCKERHUB_REPO . && \
       
