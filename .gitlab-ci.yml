@@ -92,8 +92,8 @@ Check Packages:on-schedule:
       git clone $CI_PROJECT_URL.git /tmp/$CI_PROJECT_PATH && \
       cd /tmp/$CI_PROJECT_PATH && \
       
-      if [ ! -s "package-versions.txt" ];then
-        echo "No package-versions.txt available..." && \
+      if [ ! -s "package_versions.txt" ];then
+        echo "No package_versions.txt available..." && \
       
         # Gather package information from latest build
         docker run --rm --entrypoint /bin/sh -v /tmp/$CI_PROJECT_PATH:/tmp $DOCKERHUB_USER/$DOCKERHUB_REPO:latest -c '\
@@ -116,8 +116,8 @@ Check Packages:on-schedule:
         # Nice
         echo "package_versions.txt added."        
       
-      elif [ -s "package-versions.txt" ];then
-        echo "Local package-versions.txt available..." && \
+      elif [ -s "package_versions.txt" ];then
+        echo "Local package_versions.txt available..." && \
 
         # Build local image for new package versions list
         docker build --no-cache --tag $DOCKERHUB_REPO . && \
