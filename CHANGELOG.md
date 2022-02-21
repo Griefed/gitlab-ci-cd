@@ -1,3 +1,16 @@
+### [2.0.3](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.2...2.0.3) (2022-02-21)
+
+
+### 🦊 CI/CD
+
+* Update installed packages. ([968defe](https://git.griefed.de/prosper/gitlab-ci-cd/commit/968defe222ce20677078736b6929cea98a197215))
+* **GitHub:** Correctly execute (pre)release actions when tags are pushed. ([fc147b5](https://git.griefed.de/prosper/gitlab-ci-cd/commit/fc147b5f598a21557b84c5b86a82210a5945a4fa))
+
+
+### Other
+
+* **deps:** update griefed/gitlab-ci-cd docker tag to v2.0.2 ([19d18d4](https://git.griefed.de/prosper/gitlab-ci-cd/commit/19d18d425d64e5542285f14cdda89710794fc8a3))
+
 ### [2.0.2](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.1...2.0.2) (2022-02-14)
 
 
