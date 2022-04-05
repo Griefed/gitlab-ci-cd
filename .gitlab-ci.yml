@@ -3,7 +3,7 @@ stages:
   - release
   - build
 
-image: griefed/gitlab-ci-cd:2.0.4
+image: griefed/gitlab-ci-cd:2.0.5
 services:
   - name: docker:dind
     alias: docker
