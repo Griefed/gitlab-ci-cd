@@ -4,12 +4,22 @@ stages:
   - build
 
 image: griefed/gitlab-ci-cd:2.0.8
+
 services:
   - name: docker:dind
     alias: docker
+
 variables:
   project_name: $CI_PROJECT_NAME
   SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
+
+workflow:
+  rules:
+    - if: '$CI_MERGE_REQUEST_EVENT_TYPE == "detached"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always
 
 test docker:
   stage: test
