@@ -43,6 +43,7 @@ test docker:
 
 release:
   needs: ['test docker']
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
   stage: release
   script:
     - npx semantic-release
