@@ -7,6 +7,8 @@ services:
   - name: ghcr.io/griefed/gitlab-ci-cd:2.0.8
     alias: docker
 
+image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+
 variables:
   project_name: $CI_PROJECT_NAME
   SEMANTIC_RELEASE_PACKAGE: $CI_PROJECT_NAME
