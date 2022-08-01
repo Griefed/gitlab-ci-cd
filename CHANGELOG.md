@@ -1,3 +1,15 @@
+## [2.0.9](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.8...2.0.9) (2022-08-01)
+
+
+### 🦊 CI/CD
+
+* Update installed packages in Docker container. ([794c42e](https://git.griefed.de/prosper/gitlab-ci-cd/commit/794c42e3265836d68fb145b0a72e314fa5ec1aae))
+
+
+### Other
+
+* **deps:** update dependency griefed/gitlab-ci-cd to v2.0.8 ([a099cbd](https://git.griefed.de/prosper/gitlab-ci-cd/commit/a099cbd83d209d3e66a88b5636287c357ccc02aa))
+
 ## [2.0.8](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.7...2.0.8) (2022-07-01)
 
 
