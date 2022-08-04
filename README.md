@@ -34,7 +34,7 @@ Combines:
 ```yml
 Inform About Release:
   stage: Build Release
-  image: ghcr.io/griefed/gitlab-ci-cd:2.0.6
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
   needs:
     - job: Build Release
       artifacts: false
@@ -77,7 +77,7 @@ Inform About Release:
 ```yml
 test docker:
   stage: test
-  image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
   before_script:
     - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN" docker.io
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -164,10 +164,10 @@ stages:
   - build
 
 services:
-  - name: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+  - name: ghcr.io/griefed/gitlab-ci-cd:2.0.9
     alias: docker
 
-image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
 
 variables:
   project_name: $CI_PROJECT_NAME
@@ -183,7 +183,7 @@ workflow:
 
 test docker:
   stage: test
-  image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
   before_script:
     - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN" docker.io
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
@@ -205,7 +205,7 @@ test docker:
 
 release:
   needs: ['test docker']
-  image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
   stage: release
   script:
     - npx semantic-release
@@ -219,7 +219,7 @@ release:
 
 build:
   stage: build
-  image: ghcr.io/griefed/gitlab-ci-cd:2.0.8
+  image: ghcr.io/griefed/gitlab-ci-cd:2.0.9
   before_script:
     - docker login -u "$DOCKERHUB_USER" -p "$DOCKERHUB_TOKEN" docker.io
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
