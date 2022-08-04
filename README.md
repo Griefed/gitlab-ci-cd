@@ -11,11 +11,12 @@ Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/
 
 Combines:
 - [docker-buildx](https://git.griefed.de/prosper/docker-with-buildx)
-- JDK8 for CI
+- JDK8
 - [GitLab Semantic Release](https://git.griefed.de/prosper/gitlab-semantic-release)
-- NodeJS for CI
+- NodeJS
 - Docker-in-Docker
 - [discord.sh](https://github.com/ChaoticWeg/discord.sh)
+- git
 
 # discord.sh example
 
