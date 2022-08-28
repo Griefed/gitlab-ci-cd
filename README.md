@@ -17,6 +17,11 @@ Combines:
 - Docker-in-Docker
 - [discord.sh](https://github.com/ChaoticWeg/discord.sh)
 - git
+- [act](https://github.com/nektos/act)
+
+# act
+
+act requires a `.actrc`-file to be present in the executing users home directory, so `~/.actrc`. For information about the contents and configuration of this file, see [nektos/act#first-run](https://github.com/nektos/act#first-act-run) and [nektos/act#configuration](https://github.com/nektos/act#configuration)
 
 # discord.sh example
 
