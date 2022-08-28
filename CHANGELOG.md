@@ -1,3 +1,10 @@
+## [2.1.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.9...2.1.0) (2022-08-28)
+
+
+### 🚀 Features
+
+* Add `act`(https://github.com/nektos/act) to image to allow for GitHub workflow runs even though we are not on GitHub :-] ([677604d](https://git.griefed.de/prosper/gitlab-ci-cd/commit/677604d899cac831f2720d4786fb10a8a6078934))
+
 ## [2.0.9](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.0.8...2.0.9) (2022-08-01)
 
 
