@@ -1,3 +1,10 @@
+## [2.2.3](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.2...2.2.3) (2022-11-01)
+
+
+### 🦊 CI/CD
+
+* Update installed packages in Docker container. ([38020f8](https://git.griefed.de/prosper/gitlab-ci-cd/commit/38020f86edf79016c4b7b339d9ba628f60b12f53))
+
 ## [2.2.2](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.1...2.2.2) (2022-10-01)
 
 
