@@ -19,7 +19,7 @@ expat-2.5.0-r0
 fontconfig-2.13.1-r4
 freetype-2.11.1-r2
 giflib-5.2.1-r0
-git-2.34.5-r0
+git-2.34.6-r0
 icu-libs-69.1-r1
 inih-53-r1
 ip6tables-1.8.7-r1
