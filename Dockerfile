@@ -24,8 +24,8 @@ FROM mazzolino/docker:20.10.12-dind
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
 
-COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
-COPY --from=fetcher /discord.sh /discord.sh
+COPY --from=fetcher /docker-buildx  /usr/lib/docker/cli-plugins/docker-buildx
+COPY --from=fetcher /discord.sh     /discord.sh
 
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 
@@ -34,12 +34,16 @@ RUN \
   apk update && \
   apk upgrade && \
   apk add --no-cache \
+    --repository https://dl-cdn.alpinelinux.org/alpine/v3.17/main/ \
+    nodejs \
+    npm && \
+  apk add --no-cache \
     bash \
     ca-certificates \
     curl \
     git \
-    nodejs-current \
     jq \
+    nodejs \
     npm \
     openjdk8 && \
   echo "node version is: " && \
@@ -76,5 +80,5 @@ RUN \
   echo "**** Cleanup ****" && \
   rm -rf \
     /var/cache/apk/* \
-    /tmp/* \
+    /tmp/*
 
