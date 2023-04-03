@@ -38,7 +38,7 @@ RUN \
     ca-certificates \
     curl \
     git \
-    nodejs-current \
+    nodejs \
     jq \
     npm \
     openjdk8 && \
