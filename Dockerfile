@@ -33,17 +33,19 @@ RUN \
   echo "**** Updating and installing our packages ****" && \
   apk update && \
   apk upgrade && \
-  apk add \
-    --no-cache \
+  apk add --no-cache \
     --repository https://dl-cdn.alpinelinux.org/alpine/v3.17/main/ \
-      bash \
-      ca-certificates \
-      curl \
-      git \
-      jq \
-      nodejs \
-      npm \
-      openjdk8 && \
+    nodejs \
+    npm && \
+  apk add --no-cache \
+    bash \
+    ca-certificates \
+    curl \
+    git \
+    jq \
+    nodejs \
+    npm \
+    openjdk8 && \
   echo "node version is: " && \
     node -v && \
   echo "npm version is: " && \
