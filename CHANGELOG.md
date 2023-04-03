@@ -1,3 +1,15 @@
+## [2.2.9](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.8...2.2.9) (2023-04-03)
+
+
+### 🦊 CI/CD
+
+* Update Node to version 18. ([1bd579c](https://git.griefed.de/prosper/gitlab-ci-cd/commit/1bd579ce0e88716ec2365edb46be39deb43290d1))
+
+
+### Other
+
+* Fix renovate config ([ad7a76f](https://git.griefed.de/prosper/gitlab-ci-cd/commit/ad7a76fef46da724a3f7f2935c3adfa3694068cd))
+
 ## [2.2.8](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.7...2.2.8) (2023-04-01)
 
 
