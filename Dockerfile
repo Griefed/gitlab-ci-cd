@@ -19,13 +19,21 @@ RUN \
     chmod a+x \
       /discord.sh
 
+FROM node:18.15.0-alpine3.17 AS node
+
 FROM mazzolino/docker:20.10.12-dind
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
 
-COPY --from=fetcher /docker-buildx /usr/lib/docker/cli-plugins/docker-buildx
-COPY --from=fetcher /discord.sh /discord.sh
+COPY --from=node /usr/lib           /usr/lib
+COPY --from=node /usr/local/share   /usr/local/share
+COPY --from=node /usr/local/lib     /usr/local/lib
+COPY --from=node /usr/local/include /usr/local/include
+COPY --from=node /usr/local/bin     /usr/local/bin
+
+COPY --from=fetcher /docker-buildx  /usr/lib/docker/cli-plugins/docker-buildx
+COPY --from=fetcher /discord.sh     /discord.sh
 
 ENV DOCKER_CLI_EXPERIMENTAL=enabled
 
@@ -38,7 +46,6 @@ RUN \
     ca-certificates \
     curl \
     git \
-    nodejs \
     jq \
     npm \
     openjdk8 && \
