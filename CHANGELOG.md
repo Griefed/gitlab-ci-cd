@@ -1,3 +1,39 @@
+## [2.2.12](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.11...2.2.12) (2023-07-01)
+
+
+### 🦊 CI/CD
+
+* Update installed packages in Docker container. ([7dcb6b5](https://git.griefed.de/prosper/gitlab-ci-cd/commit/7dcb6b52af922bd3d413938434ebcb2a806c2bb1))
+
+
+### Other
+
+* **deps:** update ghcr.io/griefed/gitlab-ci-cd docker tag to v2.2.11 ([cd99346](https://git.griefed.de/prosper/gitlab-ci-cd/commit/cd99346e0d1104a07b4b9822a8600e474eb2b114))
+
+## [2.2.11](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.10...2.2.11) (2023-06-01)
+
+
+### 🦊 CI/CD
+
+* Update installed packages in Docker container. ([a7f264e](https://git.griefed.de/prosper/gitlab-ci-cd/commit/a7f264ed9730a357fc89ee2418fb1aa226945437))
+
+
+### Other
+
+* **deps:** update ghcr.io/griefed/gitlab-ci-cd docker tag to v2.2.10 ([6fe903e](https://git.griefed.de/prosper/gitlab-ci-cd/commit/6fe903e45413f087ecee6deabe5bb1b0304f8572))
+
+## [2.2.10](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.9...2.2.10) (2023-05-01)
+
+
+### 🦊 CI/CD
+
+* Update installed packages in Docker container. ([e071c5b](https://git.griefed.de/prosper/gitlab-ci-cd/commit/e071c5b445c6c263344a1953fa31aeafdb12a0aa))
+
+
+### Other
+
+* **deps:** update ghcr.io/griefed/gitlab-ci-cd docker tag to v2.2.9 ([d1ea39f](https://git.griefed.de/prosper/gitlab-ci-cd/commit/d1ea39f6fb17336e5b3f2f9512bf002a6e35c085))
+
 ## [2.2.9](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.8...2.2.9) (2023-04-03)
 
 
