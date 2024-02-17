@@ -1,3 +1,16 @@
+## [2.2.19](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.18...2.2.19) (2024-02-17)
+
+
+### 🦊 CI/CD
+
+* Fetch act install-script via permalink to act main-branch ([ad5d460](https://git.griefed.de/prosper/gitlab-ci-cd/commit/ad5d4607d85dc9d5d26f4d8658413ee4867eb4f9))
+* switch to raw ([1c46331](https://git.griefed.de/prosper/gitlab-ci-cd/commit/1c463313c25fa4573db8d04c74b47ae8e14bab40))
+
+
+### Other
+
+* remove not needed files ([cdd7de2](https://git.griefed.de/prosper/gitlab-ci-cd/commit/cdd7de26b4990e8965d0668dc69b5b41b218284b))
+
 ## [2.2.18](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.17...2.2.18) (2024-02-01)
 
 
