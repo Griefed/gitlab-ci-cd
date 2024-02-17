@@ -76,7 +76,7 @@ RUN \
   npm install -g \
     @quasar/cli && \
   echo "**** Installing act ****" && \
-    curl https://raw.githubusercontent.com/nektos/act/b23bbefc365012886192e477a88d38a0909ecba1/install.sh | bash && \
+    curl https://github.com/nektos/act/blob/852959e1e14bf5cd9c0284d15ca899bef68ff4af/install.sh | bash && \
   echo "**** Cleanup ****" && \
   rm -rf \
     /var/cache/apk/* \
