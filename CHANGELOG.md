@@ -1,3 +1,17 @@
+## [2.2.27](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.26...2.2.27) (2025-01-17)
+
+
+### 🦊 CI/CD
+
+* Deprecate armv7 ([9cab74b](https://git.griefed.de/prosper/gitlab-ci-cd/commit/9cab74b9a85ef58bc577bcb1d59bfdcc35ac2a2c))
+* Fix yaml by removing derp block ([3aa07bc](https://git.griefed.de/prosper/gitlab-ci-cd/commit/3aa07bcf2b2ca30a0252d7715bc6ffe38ac37b96))
+* Move to GHCR ([eecbda2](https://git.griefed.de/prosper/gitlab-ci-cd/commit/eecbda205227adb3a14908d60108763b1e4a4c55))
+
+
+### 🛠 Fixes
+
+* Bump to alpine v3.20 for nodejs 20 ([e210eb1](https://git.griefed.de/prosper/gitlab-ci-cd/commit/e210eb1271d2986dfc644b45feab58d26e17dde8))
+
 ## [2.2.26](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.25...2.2.26) (2024-11-01)
 
 
