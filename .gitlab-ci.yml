@@ -42,10 +42,6 @@ test docker:
     variables:
       - '$CI_COMMIT_TITLE =~ /^RELEASE:.+$/ || $CI_PIPELINE_SOURCE == "schedule"'
 
-test semantic-release:
-  stage: test
-
-
 release:
   needs: ['test docker']
   stage: release
