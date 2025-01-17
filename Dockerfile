@@ -34,7 +34,7 @@ RUN \
   apk update && \
   apk upgrade && \
   apk add --no-cache \
-    --repository https://dl-cdn.alpinelinux.org/alpine/v3.17/main/ \
+    --repository https://dl-cdn.alpinelinux.org/alpine/v3.20/main/ \
     nodejs \
     npm && \
   apk add --no-cache \
