@@ -4,10 +4,10 @@ stages:
   - build
 
 services:
-  - name: docker.griefed.dev/griefed/gitlab-ci-cd:2.2.12
+  - name: ghcr.io/griefed/gitlab-ci-cd:2.2.12
     alias: docker
 
-image: docker.griefed.dev/griefed/gitlab-ci-cd:2.2.12
+image: ghcr.io/griefed/gitlab-ci-cd:2.2.12
 
 variables:
   project_name: $CI_PROJECT_NAME
@@ -33,7 +33,7 @@ test docker:
     - docker buildx build
       --push
       --no-cache
-      --platform linux/amd64,linux/arm64,linux/arm/v7
+      --platform linux/amd64,linux/arm64
       --tag "index.docker.io/$DOCKERHUB_USER/$DOCKERHUB_REPO:develop-$CI_COMMIT_SHORT_SHA"
       --tag "ghcr.io/$DOCKERHUB_USER/$DOCKERHUB_REPO:develop-$CI_COMMIT_SHORT_SHA" .
   except:
