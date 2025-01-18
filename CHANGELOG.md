@@ -1,3 +1,10 @@
+## [2.2.28](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.27...2.2.28) (2025-01-18)
+
+
+### 🦊 CI/CD
+
+* Deprecate armv7 from build, too ([c9e8820](https://git.griefed.de/prosper/gitlab-ci-cd/commit/c9e8820f1ce12e6c79f2d0c687e281ad04736ec6))
+
 ## [2.2.27](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.26...2.2.27) (2025-01-17)
 
 
