@@ -19,7 +19,7 @@ RUN \
     chmod a+x \
       /discord.sh
 
-FROM docker:27.5.0-dind
+FROM docker:28.4.0-dind
 
 LABEL maintainer="Griefed <griefed@griefed.de>"
 LABEL description="Provides GitLab Semantic Release, buildx, JDK 8, NodeJS for Griefed's GitLab CI/CD pipelines."
@@ -76,7 +76,7 @@ RUN \
   npm install -g \
     @quasar/cli && \
   echo "**** Installing act ****" && \
-    curl https://raw.githubusercontent.com/nektos/act/852959e1e14bf5cd9c0284d15ca899bef68ff4af/install.sh | bash && \
+    curl https://raw.githubusercontent.com/nektos/act/f5a0ddecd7f3c929390b804c5b285ca351c65429/install.sh | bash && \
   echo "**** Cleanup ****" && \
   rm -rf \
     /var/cache/apk/* \

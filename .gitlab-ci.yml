@@ -4,10 +4,10 @@ stages:
   - build
 
 services:
-  - name: ghcr.io/griefed/gitlab-ci-cd:2.2.12
+  - name: ghcr.io/griefed/gitlab-ci-cd:2.2.31
     alias: docker
 
-image: ghcr.io/griefed/gitlab-ci-cd:2.2.12
+image: ghcr.io/griefed/gitlab-ci-cd:2.2.31
 
 variables:
   project_name: $CI_PROJECT_NAME
