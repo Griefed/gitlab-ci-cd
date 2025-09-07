@@ -1,3 +1,9 @@
+## [2.3.0](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.31...2.3.0) (2025-09-07)
+
+### 🦊 CI/CD
+
+* bump pipeline ci-cd version, bump dind and act versions ([112dc42](https://git.griefed.de/prosper/gitlab-ci-cd/commit/112dc4204361d698531d6f22eeb8ba52b3aa42d6))
+
 ## [2.2.31](https://git.griefed.de/prosper/gitlab-ci-cd/compare/2.2.30...2.2.31) (2025-04-01)
 
 
